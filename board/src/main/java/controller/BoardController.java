@@ -29,6 +29,7 @@ public class BoardController {
             }
         }catch(SQLException e){
             e.printStackTrace();
+            //게시글 리스트 보여주기 -> board/showList.jsp
         }
     }
 
