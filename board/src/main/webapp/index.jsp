@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>index</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
 <body>
@@ -9,11 +11,11 @@
     아이디: <input type="text" name="username"><br/>
     비밀번호:<input type="password" name="password"><br/>
     <hr>
-    <input type="submit" value="로그인">
+    <input type="submit" class="btn btn-light" value="로그인">
 </form>
 <hr>
-<a href="/user/register.jsp">
-   회원가입
-</a>
+<button class="btn btn-dark">
+    <a href="/user/register.jsp">회원가입</a>
+</button>
 </body>
 </html>

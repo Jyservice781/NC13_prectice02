@@ -3,6 +3,8 @@
 <html>
 <head>
     <title>showError</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <%
@@ -20,6 +22,8 @@
     <%=message%>
 </h1>
     <%// if 문으로 감싸주면 좋다.%>
-<a href="/">인덱스로</a>
+    <button class="btn btn-dark">
+        <a href="/">뒤로가기</a>
+    </button>
 </body>
 </html>
