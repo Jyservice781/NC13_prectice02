@@ -39,7 +39,6 @@ public class BoardController {
 
                 list.add(boardDTO);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -80,18 +79,15 @@ public class BoardController {
     public ArrayList<BoardDTO> insert(BoardDTO boardDTO) {
         ArrayList<BoardDTO> list = new ArrayList<>();
         String query = "INSERT INTO board(title, content, nickname) VALUES (?, ? ,?)";
-        // 사용자한테 제목, 내용, 작성자 입력받기
-        // list 필요하고 String message 처럼 입력받아서 temp 로 넣어주기
-        // 한번에 list 로 저장해주기 -> list.add();
-        // int id 값을 사용자가 지정한 인덱스를 받아와야 함.
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString('4', boardDTO.getTitle());
-            preparedStatement.setString('2', boardDTO.getContent());
-            preparedStatement.setString('3', boardDTO.getNickname());
+            preparedStatement.setString('2', boardDTO.getTitle());
+            preparedStatement.setString('3', boardDTO.getContent());
+            preparedStatement.setString('4', boardDTO.getNickname());
 
             preparedStatement.executeUpdate();
+            list.add(boardDTO);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -102,9 +98,10 @@ public class BoardController {
 
     // update
     // id 값을 제대로 받아와야함 -> BoardDTO.id
-    public ArrayList<BoardDTO> update(BoardDTO boardDTO) {
+    public BoardDTO update(int id) {
         String query = "INSERT INTO board (title, content, nickname) VALUES (?,?,?)";
         try {
+            BoardDTO boardDTO = new BoardDTO();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString('1', boardDTO.getTitle());
             preparedStatement.setString('2', boardDTO.getContent());
@@ -119,8 +116,8 @@ public class BoardController {
     }
 
     //delete
-    public ArrayList<BoardDTO> delete() {
-        String query = "DELETE * FROM board.id WHERE board";
+    public ArrayList<BoardDTO> delete(int id) {
+        String query = "DELETE * FROM board WHERE id = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.executeUpdate();
@@ -129,5 +126,4 @@ public class BoardController {
         }
         return null;
     }
-
 }

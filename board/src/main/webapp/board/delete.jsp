@@ -21,12 +21,12 @@
         // 로그인 null != true 일때
         // 만들거임.
         BoardDTO boardDTO = new BoardDTO();
-        ArrayList<BoardDTO> list = boardController.delete();
+        ArrayList<BoardDTO> list = boardController.delete(boardDTO.getId());
 
 %>
 
 <%
-} else {
+    } else {
 %>
 <p>
     로그인을 하셔야 게시글을 삭제할 수 있습니다.

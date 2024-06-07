@@ -25,18 +25,20 @@
         닉네임: <input type="text" name="userNickname"><br/>
         <input type="submit" class="btn btn-dark" name="저장하기">
     </form>
+    <%
+        boardDTO.setTitle(boardDTO.getTitle());
+        boardDTO.setContent(boardDTO.getContent());
+        boardDTO.setNickname(boardDTO.getNickname());
+        boardController.insert(boardDTO);
+    %>
     <button>
         <a href="/" class="btn btn-light">뒤로가기</a>
     </button>
-
-    <%%>
-
     <%
         } else {
     %>
     <h2>잘못된 입력입니다.</h2>
     <a href="/" class="btn btn-dark">뒤로가기</a>
-
     <%
         }
     %>

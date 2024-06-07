@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/board/delete.jsp" value="file://$PROJECT_DIR$/src/main/webapp/board" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/board/showList.jsp" value="file://$PROJECT_DIR$/src/main/webapp/board" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/board/update.jsp" value="file://$PROJECT_DIR$/src/main/webapp/board" />
       </map>
     </option>
   </component>
