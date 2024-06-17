@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript</title>
+</head>
+<body>
+  <div id="tempDiv">
+    <h1 id="copyH1" style="color:red;">이 h1은 복사할 대상입니다.</h1>
+  </div>
+
+<script>
+  var h1 = document.getElementById("copyH1");
+  h1.innerText = "복사되었습니다.";
+
+
+
+  // 자바스크립트로 어떠한 요소를 복사하고 싶을 경우, 안타깝지만
+  // 똑같은 DOM 객체를 그대로 추가할 수가 없다.
+  // DOM 객체는 고유해야하기 때문에 반드시 아예 새로운 객체를 만들고
+  // 그안의 내용을 복사한 후에 해당 새로운 객체를 추가해야한다.
+
+  for(var i = 0; i < 4; i++){
+    // var newH = document.createElement("h1");
+    // // 객체만들기
+    // newH.innerText = h1.innerText;
+    // // 객체안에 내용 넣기
+    // document.getElementById("tempDiv").appendChild(newH);
+    // DOM 객체를 삽입.
+
+    var newH = h1.cloneNode(true);
+    newH['id'] = "newH" + i;
+    document.getElementById("tempDiv").appendChild(newH);
+  }
+
+  for(var h of document.getElementById("tempDiv").childNodes){
+     if(h.id == "newH0"){
+       h.style.color = 'blue';
+     }
+  }
+  // id 는 중복될 수 없기 때문에 새로운 아이디 값을 추가해주어야 한다.
+
+  //innerHTML 은 프로퍼티, AppendChild 는 메서드이ㅏㄷ.
+/*  document.getElementById("tempDiv").innerHTML += h1;
+    document.getElementById("tempDiv").innerText += 'abc';
+    document.getElementById("tempDiv").appendChild(h1);
+  */
+</script>
+</body>
+</html>

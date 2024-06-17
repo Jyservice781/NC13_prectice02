@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+    <div id="input_wrap">
+        <input type="number" max="10" min="1" name="번호" value="번호">
+        <input type="text" name="이름" placeholder="이름을 적어주세요">
+        <input type="number" max="100" min="1" name="나이" value="나이">
+    </div>
+    <button id="add_btn" onclick="addInput()">+</button>
+    <button id="delete_btn" onclick="deleteInput()">-</button>
+<script>
+    // 번호 이름 나이를 입력하는 칸을 만들고
+    // 그 옆에 +,- 버튼을 만들어서
+    // + 버튼을 누르면 비어있는 입력 칸이 새로 한줄 추가가 되고
+    // - 버튼을 누르면 해당 줄이 삭제되는 코드를 작성해보세요
+
+    function addInput(){
+        // 버튼을 눌렀을떄 해당 html 을 그대로 복사
+        var newForm = div.cloneNode(true);
+        newForm['id'] = "newDiv";
+        document.getElementById("input_wrap").appendChild(newForm);
+    }
+
+    function deleteInput(){
+        //버튼을 눌렀을때 해당 html 을 그대로 삭제해야함.
+        var delete_btn =  document.getElementById("input_wrap");
+        delete_btn.removeChild("input_wrap");
+
+    }
+</script>
+</body>
+</html>
