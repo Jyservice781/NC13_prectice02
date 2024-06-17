@@ -5,32 +5,84 @@
     <title>JavaScript</title>
 </head>
 <body>
-    <div id="input_wrap">
-        <input type="number" max="10" min="1" name="번호" value="번호">
-        <input type="text" name="이름" placeholder="이름을 적어주세요">
-        <input type="number" max="100" min="1" name="나이" value="나이">
+<script>
+    let curIdx = 2;
+</script>
+
+<button onclick="location.href='js5.html'"> js5.html 로 가기</button>
+<div id="form">
+    <div id="inputRow_1">
+        <input type="number" id="inputId1" max="10" min="1" placeholder="번호">
+        <input type="text" id="inputName1" placeholder="이름을 적어주세요">
+        <input type="number" id="inputAge1" max="100" min="1" placeholder="나이">
+        <button onclick="addRow()">+</button>
     </div>
-    <button id="add_btn" onclick="addInput()">+</button>
-    <button id="delete_btn" onclick="deleteInput()">-</button>
+</div>
+
 <script>
     // 번호 이름 나이를 입력하는 칸을 만들고
     // 그 옆에 +,- 버튼을 만들어서
     // + 버튼을 누르면 비어있는 입력 칸이 새로 한줄 추가가 되고
     // - 버튼을 누르면 해당 줄이 삭제되는 코드를 작성해보세요
 
-    function addInput(){
-        // 버튼을 눌렀을떄 해당 html 을 그대로 복사
-        var newForm = div.cloneNode(true);
-        newForm['id'] = "newDiv";
-        document.getElementById("input_wrap").appendChild(newForm);
+    function addRow() {
+        let newRow = document.createElement("div");
+
+        let inputId = document.createElement("input");
+        inputId.type = "text";
+        inputId.id = "inputId" + curIdx;
+        inputId.placeholder = "번호";
+
+        let inputName = document.createElement("input");
+        inputName.type = "text";
+        inputName.id = "inputName" + curIdx;
+        inputName.placeholder = "이름";
+
+        let inputAge = document.createElement("input");
+        inputAge.type = "text";
+        inputAge.id = "inputAge" + curIdx;
+        inputAge.placeholder = "나이";
+
+        let btnAdd = document.createElement("button");
+        btnAdd.innerText = "+";
+        btnAdd.setAttribute("onclick", "addRow()");
+
+        let btnRemove = document.createElement("button");
+        btnRemove.innerText = "-";
+        btnRemove.setAttribute("onclick", "removeRow('inputRow_" + curIdx + "')");
+
+        newRow.appendChild(inputId);
+        newRow.appendChild(inputName);
+        newRow.appendChild(inputAge);
+        newRow.appendChild(btnAdd);
+        newRow.appendChild(btnRemove);
+
+        newRow.id = "inputRow_" + curIdx;
+        // 출력을 한 다음에 ++ 를 해준다.
+        curIdx++;
+
+        document.getElementById("form").appendChild(newRow);
     }
 
-    function deleteInput(){
-        //버튼을 눌렀을때 해당 html 을 그대로 삭제해야함.
-        var delete_btn =  document.getElementById("input_wrap");
-        delete_btn.removeChild("input_wrap");
-
+    function removeRow(id) {
+        let row = document.getElementById(id);
+        let form = document.getElementById('form');
+        form.removeChild(row);
     }
+
+    /*    function addInput(){
+            // 버튼을 눌렀을떄 해당 html 을 그대로 복사
+            var newForm = div.cloneNode(true);
+            newForm['id'] = "newDiv";
+            document.getElementById("input_wrap").appendChild(newForm);
+        }
+
+        function deleteInput(){
+            //버튼을 눌렀을때 해당 html 을 그대로 삭제해야함.
+            var delete_btn =  document.getElementById("input_wrap");
+            delete_btn.removeChild("input_wrap");
+
+        }*/
 </script>
 </body>
 </html>
